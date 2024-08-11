@@ -40,7 +40,7 @@
                         </div>
                     </div>
 
-                    @if ($count == 1)
+                    @if ($count == 10)
                         @break
                     @endif
                 @endforeach

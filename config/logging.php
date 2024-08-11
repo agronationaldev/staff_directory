@@ -65,6 +65,12 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'length_of_service' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/length_of_service.log'),
+            'level' => 'info',
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

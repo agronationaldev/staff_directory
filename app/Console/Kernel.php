@@ -10,11 +10,15 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      */
-    protected function schedule(Schedule $schedule): void
+    protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('calculate:lengthofservice')->dailyAt('00:00');
     }
 
+    protected $commands = [
+        \App\Console\Commands\CalculateLengthOfService::class,
+    ];
+    
     /**
      * Register the commands for the application.
      */

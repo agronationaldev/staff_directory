@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 class Staff extends Model
 {
@@ -59,7 +61,9 @@ class Staff extends Model
         'minimum_wage_allowances',
         'salary_total',
         'profile_picture', 
-        'documents',       
+        'documents', 
+        'created_by', 
+        'updated_by',        
     ];
 
     protected $casts = [
@@ -75,6 +79,18 @@ class Staff extends Model
         static::saving(function ($model) {
             $model->calculateSalaryTotal();
             $model->calculateLengthOfService();
+        });
+
+        static::creating(function ($model) {
+            if (Auth::check()) {
+                $model->created_by = Auth::user()->name;
+            }
+        });
+
+        static::updating(function ($model) {
+            if (Auth::check()) {
+                $model->updated_by = Auth::user()->name;
+            }
         });
     }
 

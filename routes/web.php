@@ -18,7 +18,7 @@ use App\Http\Controllers\PublicStaffController;
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return redirect()->route('filament.pages.staff-directory');
+    return redirect()->route('staff.index');
 });
 
 Route::get('/staff-directory', [PublicStaffController::class, 'index'])->name('staff.index');
