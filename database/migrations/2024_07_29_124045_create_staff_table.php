@@ -24,8 +24,8 @@ return new class extends Migration
             $table->text('permanent_address');
             $table->string('contact_number');
             $table->string('ext_no')->nullable();
-            $table->string('personal_email')->unique();
-            $table->string('office_email')->unique();
+            $table->string('personal_email');
+            $table->string('office_email');
             $table->string('emergency_contact_name');
             $table->string('emergency_contact_number');
             $table->string('marital_status');

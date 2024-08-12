@@ -17,6 +17,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\MoneyColumn;
 use Illuminate\Database\Eloquent\Builder;
@@ -57,7 +58,7 @@ class StaffResource extends Resource
                 Textarea::make('permanent_address')->required(),
                 TextInput::make('contact_number')->required()->numeric(),
                 TextInput::make('ext_no')->numeric(),
-                TextInput::make('personal_email')->required()->unique(Staff::class, 'personal_email', ignoreRecord: true),
+                TextInput::make('personal_email')->required(),
                 TextInput::make('office_email'),
                 TextInput::make('emergency_contact_name')->required(),
                 TextInput::make('emergency_contact_number')->required()->numeric(),
@@ -114,9 +115,18 @@ class StaffResource extends Resource
                 ImageColumn::make('profile_picture')
                     ->label('Profile Picture')
                     ->circular(),
-                TextColumn::make('staff_no'),
-                TextColumn::make('id_card_no'),
-                TextColumn::make('name'),
+                TextColumn::make('staff_no')
+                ->searchable()
+                ->sortable()
+                ->toggleable(),
+                TextColumn::make('id_card_no')
+                ->searchable()
+                ->sortable()
+                ->toggleable(),
+                TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->toggleable(),
                 TextColumn::make('department'),
                 TextColumn::make('designation'),
                 // TextColumn::make('position'),
@@ -143,7 +153,7 @@ class StaffResource extends Resource
                 // TextColumn::make('employment_type'),
                 // TextColumn::make('bank_name'),
                 // TextColumn::make('account_name'),
-                // TextColumn::make('account_no'),
+                BooleanColumn::make('active'),
                 TextColumn::make('created_by'),
                 TextColumn::make('updated_by')->default('-'),
                 // TextColumn::make('basic_salary')->money('mvr', true),
