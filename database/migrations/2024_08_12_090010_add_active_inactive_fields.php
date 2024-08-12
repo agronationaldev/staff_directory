@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('staff', function (Blueprint $table) {
             //
-            $table->boolean('')->default(true);
+            $table->boolean('active')->default(true);
         });
     }
 
