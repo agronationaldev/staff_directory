@@ -15,8 +15,7 @@
             <div class="widget-content widget-content-area d-flex flex-wrap" id="staff-list">
                 @php
                     $count = 0;
-                @endphp
-
+                @endphp 
                 @foreach ($staff as $staffMember)
                     @php
                         $count++;

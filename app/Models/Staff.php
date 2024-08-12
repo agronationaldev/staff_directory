@@ -63,7 +63,8 @@ class Staff extends Model
         'profile_picture', 
         'documents', 
         'created_by', 
-        'updated_by',        
+        'updated_by',    
+        'active',     
     ];
 
     protected $casts = [
@@ -124,5 +125,10 @@ class Staff extends Model
         $days = $joinDate->copy()->addYears($years)->addMonths($months)->diffInDays($currentDate);
 
         $this->length_of_service = "{$years} years {$months} months {$days} days";
+    }
+
+    public function getThreeMonthDateAttribute()
+    {
+        return Carbon::parse($this->date_of_join)->addMonths(3);
     }
 }

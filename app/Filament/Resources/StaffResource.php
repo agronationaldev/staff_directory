@@ -16,6 +16,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\MoneyColumn;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,6 +32,8 @@ class StaffResource extends Resource
     {
         return $form
             ->schema([
+                Toggle::make('active')->columnSpan('full')
+                ->columnStart(2),
                 FileUpload::make('profile_picture')
                 ->label('Upload Image')
                 ->image()
@@ -39,9 +42,10 @@ class StaffResource extends Resource
                 ->imageResizeTargetHeight(720)
                 ->directory('images')
                 ->disk('public')
-                ->required(),
-
-                FileUpload::make('documents')->multiple(),
+                ->required(), 
+                
+                
+                // FileUpload::make('documents')->multiple(),
                 TextInput::make('staff_no')->required()->unique(Staff::class, 'staff_no', ignoreRecord: true)->numeric(),
                 TextInput::make('id_card_no')->required()->unique(Staff::class, 'id_card_no', ignoreRecord: true),
                 TextInput::make('name')->required(),
