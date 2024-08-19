@@ -23,6 +23,7 @@ class PublicStaffController extends Controller
                 return $queryBuilder->where('department', $department);
             })
             ->where('active', true) 
+            ->orderBy('name', 'asc')
             ->paginate(20);
     
         // Check if the request expects JSON (AJAX request)
