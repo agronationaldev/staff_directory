@@ -18,7 +18,8 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="{{asset('cork-src/plugins/src/autocomplete/css/autoComplete.02.css')}}" rel="stylesheet" type="text/css" />
-
+    <link href="{{asset('cork-src/assets/css/light/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('cork-src/assets/css/dark/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('cork-src/assets/css/light/components/media_object.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('cork-src/assets/css/dark/components/media_object.css')}}s" rel="stylesheet" type="text/css">
 
