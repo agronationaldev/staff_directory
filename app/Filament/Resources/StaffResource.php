@@ -150,6 +150,7 @@ class StaffResource extends Resource
                 TextColumn::make('work_location'),
                 // TextColumn::make('qualification'),
                 TextColumn::make('supervisor'),
+                TextColumn::make('salary_total')->money('mvr', true),
                 // TextColumn::make('employment_type'),
                 // TextColumn::make('bank_name'),
                 // TextColumn::make('account_name'),
@@ -172,7 +173,7 @@ class StaffResource extends Resource
                 // TextColumn::make('senior_management_allowance')->money('mvr', true),
                 // TextColumn::make('island_coordinator_allowance')->money('mvr', true),
                 // TextColumn::make('minimum_wage_allowances')->money('mvr', true),
-                // TextColumn::make('salary_total')->money('mvr', true),
+                
             ])
             ->filters([
                 // Define any filters here
