@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
+
 class Staff extends Model
 {
     use HasFactory;
