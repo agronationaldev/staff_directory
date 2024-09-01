@@ -21,11 +21,11 @@ class FilamentServiceProvider extends ServiceProvider
             );
         });
 
-        // Override Filament's authentication middleware for specific pages
-        $this->app['router']->get('/staff-directory', function() {
-            return view('filament.pages.staff-directory', [
-                'staff' => \App\Models\Staff::all()
-            ]);
-        })->name('filament.pages.staff-directory')->withoutMiddleware(['auth']);
+        // // Override Filament's authentication middleware for specific pages
+        // $this->app['router']->get('/staff-directory', function() {
+        //     return view('filament.pages.staff-directory', [
+        //         'staff' => \App\Models\Staff::all()
+        //     ]);
+        // })->name('filament.pages.staff-directory')->withoutMiddleware(['auth']);
     }
 }

@@ -16,9 +16,9 @@ use App\Http\Controllers\PublicStaffController;
 
 // Route::get('/', function () {
 //     return view('welcome');
+// // });
+// Route::get('/', function () {
+//     return redirect()->route('staff.index');
 // });
-Route::get('/', function () {
-    return redirect()->route('staff.index');
-});
 
-Route::get('/staff-directory', [PublicStaffController::class, 'index'])->name('staff.index');
+// Route::get('/staff-directory', [PublicStaffController::class, 'index'])->name('staff.index');
